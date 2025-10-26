@@ -1,31 +1,34 @@
-# Kyle Zhang - Music Artist Portfolio Website
+# Kyle Zhang - Music Artist Portfolio
 
-A modern, responsive portfolio website for music artist Kyle Zhang. Built with pure HTML, CSS, and JavaScript.
+A modern, high-performance portfolio website for music artist Kyle Zhang, built with Next.js 15, React 19, TypeScript, and Tailwind CSS.
 
 ## Features
 
-- **Responsive Design**: Fully responsive layout that works on all devices
-- **Modern UI/UX**: Clean, professional design with smooth animations
-- **Interactive Elements**: Dynamic navigation, form validation, and user notifications
-- **Sections Include**:
-  - Hero section with call-to-action buttons
-  - About section with artist bio and social links
-  - Music section showcasing albums and singles
-  - Shows section listing upcoming performances
-  - Contact form for fan engagement
+- **Next.js 15 App Router**: Leveraging the latest Next.js features for optimal performance
+- **React 19**: Built with the newest React version for cutting-edge capabilities
+- **TypeScript**: Full type safety throughout the application
+- **Tailwind CSS**: Utility-first CSS for rapid, responsive design
+- **SEO Optimized**: Built-in metadata and semantic HTML for better search rankings
+- **Fully Responsive**: Mobile-first design that works on all devices
+- **Smooth Animations**: Engaging user experience with CSS animations
+- **Interactive Components**: Dynamic navigation, form validation, and real-time notifications
+- **Production Ready**: Optimized for deployment on Vercel, Netlify, or any Node.js hosting
 
-## Technologies Used
+## Tech Stack
 
-- HTML5
-- CSS3 (Custom properties, Grid, Flexbox, Animations)
-- Vanilla JavaScript (ES6+)
+- **Framework**: Next.js 15
+- **UI Library**: React 19
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Icons**: React Icons
+- **Deployment**: Optimized for Vercel
 
 ## Getting Started
 
 ### Prerequisites
 
-- A modern web browser (Chrome, Firefox, Safari, Edge)
-- A local web server (optional, but recommended)
+- Node.js 18.17 or later
+- npm, yarn, or pnpm
 
 ### Installation
 
@@ -35,84 +38,164 @@ A modern, responsive portfolio website for music artist Kyle Zhang. Built with p
    cd music-portfolio
    ```
 
-2. Open the website:
-   - **Option 1**: Simply open `index.html` in your web browser
-   - **Option 2**: Use a local development server:
-     ```bash
-     # Using Python 3
-     python -m http.server 8000
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
 
-     # Using Node.js (if you have http-server installed)
-     npx http-server
-     ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
 
-3. Navigate to `http://localhost:8000` in your browser
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## File Structure
+## Project Structure
 
 ```
 music-portfolio/
-├── index.html          # Main HTML file
-├── styles.css          # All styling and animations
-├── script.js           # Interactive functionality
-└── README.md          # Project documentation
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx      # Root layout with metadata
+│   │   ├── page.tsx        # Home page
+│   │   └── globals.css     # Global styles
+│   └── components/
+│       ├── Navbar.tsx      # Navigation component
+│       ├── Hero.tsx        # Hero section
+│       ├── About.tsx       # About section
+│       ├── Music.tsx       # Music showcase
+│       ├── Shows.tsx       # Upcoming shows
+│       ├── Contact.tsx     # Contact form
+│       └── Footer.tsx      # Footer component
+├── public/                 # Static assets
+├── next.config.ts          # Next.js configuration
+├── tailwind.config.ts      # Tailwind configuration
+├── tsconfig.json           # TypeScript configuration
+└── package.json            # Dependencies
 ```
 
-## Features Detail
+## Deployment
 
-### Navigation
-- Sticky navigation bar with smooth scrolling
-- Mobile-responsive hamburger menu
-- Active section highlighting
+### Deploy to Vercel (Recommended)
 
-### Hero Section
-- Eye-catching gradient design
-- Animated entrance effects
-- Call-to-action buttons
+The easiest way to deploy is using [Vercel](https://vercel.com):
 
-### About Section
-- Artist biography
-- Social media integration
-- Placeholder for artist photo
+1. Push your code to GitHub
+2. Import your repository on Vercel
+3. Vercel will automatically detect Next.js and deploy
 
-### Music Section
-- Album/single showcase cards
-- Hover effects and animations
-- Interactive listen buttons
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/music-portfolio)
 
-### Shows Section
-- Upcoming performance dates
-- Venue information
-- Ticket purchase links
+### Deploy to Netlify
 
-### Contact Section
-- Functional contact form
-- Form validation
-- Success/error notifications
+1. Push your code to GitHub
+2. Connect your repository to Netlify
+3. Build command: `npm run build`
+4. Publish directory: `.next`
+
+### Deploy to any Node.js hosting
+
+```bash
+# Build the application
+npm run build
+
+# Start the production server
+npm start
+```
 
 ## Customization
 
-### Colors
-Edit the CSS variables in `styles.css`:
+### Update Content
+
+Edit the component files in `src/components/` to update:
+- Artist name and branding
+- About section biography
+- Music releases
+- Show dates and venues
+- Contact information
+
+### Customize Colors
+
+Update the CSS variables in `src/app/globals.css`:
+
 ```css
 :root {
-    --primary-color: #6366f1;
-    --secondary-color: #8b5cf6;
-    --accent-color: #ec4899;
-    /* ... other colors */
+  --primary-color: #6366f1;    /* Indigo */
+  --secondary-color: #8b5cf6;  /* Purple */
+  --accent-color: #ec4899;     /* Pink */
+  /* ... other colors */
 }
 ```
 
-### Content
-- Update artist information in `index.html`
-- Add real images by replacing placeholder elements
-- Modify social media links in the About section
-- Update show dates and venues in the Shows section
+Or modify Tailwind theme in `tailwind.config.ts`.
 
-### Functionality
-- Customize animations in `styles.css`
-- Modify interactive features in `script.js`
-- Add backend integration for the contact form
+### Add Images
+
+1. Place images in the `public/` directory
+2. Replace placeholder elements with Next.js Image components:
+
+```tsx
+import Image from 'next/image';
+
+<Image
+  src="/artist-photo.jpg"
+  alt="Kyle Zhang"
+  width={300}
+  height={300}
+  className="rounded-3xl"
+/>
+```
+
+### Social Media Links
+
+Update the social media links in `src/components/About.tsx` to point to your actual profiles.
+
+### Contact Form Integration
+
+To make the contact form functional, integrate with a backend service:
+
+- **Email services**: SendGrid, Mailgun, Resend
+- **Form handlers**: Formspree, Getform
+- **Serverless functions**: Vercel Functions, Netlify Functions
+
+Example using Vercel Functions:
+1. Create `api/contact/route.ts` in the `app` directory
+2. Implement POST handler with your email service
+3. Update Contact component to POST to `/api/contact`
+
+## Features Breakdown
+
+### SEO Optimization
+- Metadata configured in `app/layout.tsx`
+- Semantic HTML throughout
+- Open Graph tags for social sharing
+
+### Performance
+- Automatic code splitting
+- Image optimization with Next.js Image
+- CSS optimization with Tailwind
+- Server-side rendering for fast initial load
+
+### Responsive Design
+- Mobile-first approach
+- Hamburger menu for mobile
+- Flexible grid layouts
+- Touch-friendly interactive elements
+
+## Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
 
 ## Browser Support
 
@@ -124,18 +207,23 @@ Edit the CSS variables in `styles.css`:
 
 ## Future Enhancements
 
-- [ ] Add music player integration (Spotify, Apple Music)
-- [ ] Integrate with ticketing platforms
-- [ ] Add backend for contact form
-- [ ] Include photo gallery
-- [ ] Add video section for music videos
-- [ ] Implement blog/news section
-- [ ] Add email newsletter signup
+- [ ] Spotify/Apple Music API integration
+- [ ] Blog/news section with CMS
+- [ ] E-commerce for merch
+- [ ] Newsletter signup with email service
+- [ ] Event ticketing integration
+- [ ] Music player component
+- [ ] Photo/video gallery
+- [ ] Admin dashboard for content management
 
 ## License
 
 All rights reserved. Copyright 2024 Kyle Zhang.
 
-## Contact
+## Support
 
-For inquiries about this website, please visit the contact section at [contact@kylezhang.com](mailto:contact@kylezhang.com)
+For issues or questions, please create an issue in the repository or contact [contact@kylezhang.com](mailto:contact@kylezhang.com)
+
+---
+
+Built with ❤️ using Next.js
